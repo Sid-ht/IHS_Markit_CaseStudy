@@ -29,16 +29,16 @@ Requirements:
 │   ├── spark.conf
 │   └── src
 │   │   ├── analytics
-│   │   			├──CaseAnalysis.py
+│   │            ├──CaseAnalysis.py
 │   │   ├──────output
-│   │   			└──countrybycount.parquet
-│   │   			└──output.parquet
-│   │   			└──statusbycount.parquet
+│   │            └──countrybycount.parquet
+│   │            └──output.parquet
+│   │            └──statusbycount.parquet
 │   │   ├── resources
-│   │   			└──country.csv
-│   │   			└──File1.xlsx
-│   │			    └──File2.xlsx
-│	  │				  └──status.csv
+│   │         └──country.csv
+│   │         └──File1.xlsx
+│   │         └──File2.xlsx
+│	  │         └──status.csv
 │   └── utils
 │       └── __init__.py
 │       └── logger.py
