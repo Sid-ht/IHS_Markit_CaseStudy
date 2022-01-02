@@ -6,15 +6,7 @@ from utils.logger import logger
 from utils import schemas
 from jproperties import Properties
 import pandas as pd
-import sys
-import os
 import re as r
-
-os.environ['SPARK_HOME'] = "E://spark-3.0.3-bin-hadoop2.7"
-os.environ['JAVA_HOME'] = "C://Program Files//Java//jdk1.8.0_311"
-os.environ['HADOOP_HOME'] = "C://Hadoop"
-os.environ['PYSPARK_PYTHON'] = sys.executable
-os.environ['PYSPARK_DRIVER_PYTHON'] = sys.executable
 
 
 class CaseAnalysis:
@@ -55,7 +47,7 @@ class CaseAnalysis:
         df1 = spark.createDataFrame(pdDF1,schema)
 
         df1_filtered_parts = df1.filter(col("Part Number").isNotNull())
-        #df1.show(10,truncate=False)
+        
         logger.info('File1.xlsx has been loaded with count' )
         logger.info(df1.count())
 
@@ -73,7 +65,6 @@ class CaseAnalysis:
         country_file = input_dir + '/' + 'country.csv'
         country_df = spark.read.format("csv").option("header","true").schema(country_schema)\
         .load(country_file)
-        #country_df.show(truncate=False)
 
 
         status_schema = schemas.status_schema
@@ -83,27 +74,17 @@ class CaseAnalysis:
 
         df2_filtered_parts = df2.filter(col("Part Number").isNotNull())
 
-        #df2.show(10,truncate=False)
-
         merge_df = df1_filtered_parts.union(df2_filtered_parts)
 
         logger.info("Merging dataframes with clean data")
 
         merge_clean_df = merge_df.withColumn("Status", regexp_replace(merge_df.Status, "[^A-Z_]", ""))
 
-        '''merge_clean_df.filter(col("Part Number").isin(["AS7C164A-15JCNTR", "AS7C31025B-12TJINTR",
-                                               "AS7C1026C-15JIN" , "AS7C32098A-10TIN"]))\
-                                                .show(truncate=False)'''
-
-
-        # merge_df.show(500,truncate=False)
-        # print(merge_df.count())
 
         logger.info("Dropping duplicates on basis of part numbers from merged dataframe")
 
         merge_df_unique_parts = merge_clean_df.drop_duplicates(subset=["Part Number"])
-        #merge_df_unique_parts.show(500,truncate=False)
-        #print(merge_df_unique_parts.count())
+        
 
         status_join_expr = merge_df_unique_parts["Status"] == status_df["Status"]
         country_join_expr = merge_df_unique_parts["COUNTRY OF ORIGIN"] == country_df["Country"]
