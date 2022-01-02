@@ -1,4 +1,4 @@
-# IHS_Markit_CaseStudy
+## IHS_Markit_CaseStudy
 
 Below Given dataset is about Parts.
 1. Given 4 datasets (country, status, File1, File2) load then into PySpark Dataframe
@@ -10,7 +10,7 @@ Below Given dataset is about Parts.
 7. Retain some details like (±) in data and do not remove.
 
 
-Requirements:
+#### Requirements:
 1. Well-structured, object-oriented, documented, and maintainable code.
 2. Robust and resilient code. The application should be able to scale if data volume increases.
 3. Proper exception handling
@@ -19,7 +19,7 @@ Requirements:
 6. Documentation (approach and commands for executing this code (add screenshots if possible)).
 
 
-# Project Structure
+#### Project Structure
 
 ```
 .
