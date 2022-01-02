@@ -17,3 +17,31 @@ Requirements:
 4. Config management & Logging
 5. Solution is deployable and we can run it (locally and on a cluster) – an iPython notebook is not sufficient.
 6. Documentation (approach and commands for executing this code (add screenshots if possible)).
+
+
+#Project Structure
+
+.
+├── IHS_Markit_CaseStudy
+│   ├── log4j.properties
+│   ├── requirement.properties
+│   ├── spark.conf
+│   └── src
+│   │   ├── analytics
+│   │   			├──CaseAnalysis.py
+│   │   ├──────output
+│   │   			└──countrybycount.parquet
+│   │   			└──output.parquet
+│   │   			└──statusbycount.parquet
+│   │   ├── resources
+│   │   			└──country.csv
+│   │   			└──File1.xlsx
+│   │			    └──File2.xlsx
+│	  │				  └──status.csv
+│   └── utils
+│       └── __init__.py
+│       └── logger.py
+│       └── schemas.py
+│       └── utils.py
+│
+├── README.md
