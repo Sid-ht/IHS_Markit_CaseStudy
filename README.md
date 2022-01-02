@@ -38,7 +38,7 @@ Requirements:
 │   │   			└──country.csv
 │   │   			└──File1.xlsx
 │   │			    └──File2.xlsx
-│	│				└──status.csv
+│	  │				  └──status.csv
 │   └── utils
 │       └── __init__.py
 │       └── logger.py
