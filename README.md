@@ -19,8 +19,9 @@ Requirements:
 6. Documentation (approach and commands for executing this code (add screenshots if possible)).
 
 
-#Project Structure
+# Project Structure
 
+```
 .
 ├── IHS_Markit_CaseStudy
 │   ├── log4j.properties
@@ -37,7 +38,7 @@ Requirements:
 │   │   			└──country.csv
 │   │   			└──File1.xlsx
 │   │			    └──File2.xlsx
-│	  │				  └──status.csv
+│	│				└──status.csv
 │   └── utils
 │       └── __init__.py
 │       └── logger.py
@@ -45,3 +46,4 @@ Requirements:
 │       └── utils.py
 │
 ├── README.md
+
