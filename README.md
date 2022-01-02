@@ -47,3 +47,27 @@ Below Given dataset is about Parts.
 │
 ├── README.md
 
+#### Steps to run the analysis:
+
+##### Prerequisite
+
+* PySpark
+* Python 3.9.x
+
+
+#### Input file
+
+In this use case, I have used the properties file, to configure the input files directory.
+
+Update the input and output file directory in the requirement.properties file.
+
+* One place to change the input and output directory
+
+#### Spark Configurations
+
+I have used spark.conf file to mention spaek configuration settings and using configparser in utils.py to pass the conf()
+object to driver python code.
+
+### Execution Steps [Local]:
+	
+		spark-submit --master local[*] CaseAnalysis.py
